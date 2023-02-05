@@ -1,0 +1,38 @@
+<div class="keyboard">
+  <div 
+    class="keyboard__row"
+    *ngFor="let row of keysLetter; let i = index"
+  >
+    <ng-container *ngFor="let btn of row">
+      <ng-container [ngSwitch]="btn.type">
+        <typewriter-keyboard-button
+          *ngSwitchCase="'shift'"
+          [data]="keyShift"
+          (onPressed)="onPressBtn($event)"
+        ></typewriter-keyboard-button>
+        <typewriter-keyboard-button
+          *ngSwitchCase="'letter'"
+          [data]="btn"
+          (onPressed)="onPressBtn($event)"
+        ></typewriter-keyboard-button>
+        <typewriter-keyboard-button
+          *ngSwitchCase="'space'"
+          [data]="keySpace"
+          (onPressed)="onPressBtn($event)"  
+        ></typewriter-keyboard-button>
+        <typewriter-keyboard-button
+          *ngSwitchCase="'backspace'"
+          [data]="keyBackspace"
+          (onPressed)="onPressBtn($event)"
+        ></typewriter-keyboard-button>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="keyboard__panel keyboard__panel_right">
+    <button type="button"
+      (click)="paperData.isClear.next(true)"
+      style="color: white">
+      Отправить
+    </button>
+  </div>
+</div>

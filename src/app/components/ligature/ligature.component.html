@@ -1,0 +1,16 @@
+<div
+  class="ligature-bar"
+  [@moveLigature]="data.state | async"
+>
+  <div class="ligature-bar__symbol"
+    [ngStyle]="{
+      'transform': transformSymbol
+    }">
+    <span class="ligature-bar__down">
+      {{data.symbol?.down}}
+    </span>
+    <span class="ligature-bar__up">
+      {{data.symbol?.up}}
+    </span>
+  </div>
+</div>

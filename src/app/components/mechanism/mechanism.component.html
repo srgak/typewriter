@@ -1,0 +1,16 @@
+<!-- лента -->
+<typewriter-bobbin [angle]="bobbinAngle"></typewriter-bobbin>
+<!-- лигатуры -->
+<div
+  class="type-writer-ligature"
+  [@movePetal]="data.register | async">
+  <typewriter-ligature
+    *ngFor="let item of ligatureList"
+    [data]="item"
+    [totalLigatures]="ligatureList.length"
+  ></typewriter-ligature>
+</div>
+
+<typewriter-bobbin [angle]="bobbinAngle"></typewriter-bobbin>
+
+<typewriter-tape [pressed]="tapePressed"></typewriter-tape>

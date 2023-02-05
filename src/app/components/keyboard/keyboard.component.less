@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+.keyboard {
+  border: 1px solid white;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: 
+    '. row1 panel-right'
+    '. row2 panel-right'
+    '. row3 panel-right'
+    '. row4 panel-right'
+    '. row5 panel-right';
+    grid-template-columns: 1fr auto 1fr;
+  &__row {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    &:first-child {
+      grid-area: row1;
+    }
+    &:nth-child(2) {
+      grid-area: row2;
+    }
+    &:nth-child(3) {
+      grid-area: row3;
+    }
+    &:nth-child(4) {
+      grid-area: row4;
+      margin-bottom: 0;
+    }
+    &:nth-child(5) {
+      grid-area: row5;
+    }
+  }
+  &__panel {
+    grid-area: panel-right;
+  }
+}
