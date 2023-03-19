@@ -1,1 +1,8 @@
-<typewriter-main></typewriter-main>
+<!-- <a [routerLink]="['/work-place']">Машинка</a>
+<a [routerLink]="['/messages']">Сообщения</a> -->
+<main [@routeAnimation]="getRouteAnimationData()">
+  <router-outlet></router-outlet>
+</main>
+<ui-modal
+  [currentModal]="modal.currentModal"
+  ></ui-modal>

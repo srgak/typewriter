@@ -1,0 +1,58 @@
+@import '../../../../assets/styles/variables.less';
+
+:host {
+  display: block;
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+.keyboard {
+  position: relative;
+  border-top: none;
+  overflow: hidden;
+  display: grid;
+  row-gap: @keyboard_row-interval;
+  border-radius: 0 0 80px 80px;
+  background: #000;
+  padding: @keyboard_pt 0 @keyboard_row-interval + 10;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: 10px solid transparent;
+    border-top: none;
+    background: linear-gradient(180deg, rgb(15, 15, 15) 40%, #b8b8b8 100%) border-box;
+    mask: 
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 20px;
+    position: relative;
+    font-size: 0;
+    &:first-child {
+      z-index: 5;
+    }
+    &:nth-child(2) {
+      z-index: 4;
+    }
+    &:nth-child(3) {
+      z-index: 3;
+    }
+    &:nth-child(4) {
+      z-index: 2;
+    }
+    &:last-child {
+      z-index: 1;
+    }
+  }
+}

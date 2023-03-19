@@ -1,0 +1,27 @@
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 1000px - 100;
+    background: #000;
+    z-index: 1;
+  }
+}
+
+.paper {
+  // width: 20.5cm;
+  // height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

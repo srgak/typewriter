@@ -1,0 +1,22 @@
+:host {
+  width: 225px;
+  height: 225px;
+  z-index: 3;
+}
+.bobbin {
+  width: inherit;
+  height: inherit;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: relative;
+  background: #000;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 100%;
+    background: red;
+  }
+}

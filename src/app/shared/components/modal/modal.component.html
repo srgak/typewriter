@@ -1,0 +1,14 @@
+<div class="overlay"></div>
+<div class="modal">
+  <div class="modal__header">
+    <h2 class="modal__title">{{title}}</h2>
+    <button
+      type="button"
+      class="modal__close"
+      (click)="close()" 
+    >Закрыть</button>
+  </div>
+  <div class="modal__body">
+    <ng-template typewriterRef></ng-template>
+  </div>
+</div>

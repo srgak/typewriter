@@ -1,0 +1,43 @@
+<canvas 
+  class="paper"
+  paperReady
+  (onReady)="initPaper($event)"
+></canvas>
+<div
+  class="paper-preview"
+  [@foldPaper]="letterState"
+  *ngIf="isShowPaper"
+>
+  <div class="paper-preview__item">
+    <div class="paper-preview__side paper-preview__side_front" #paperPart></div>
+    <div class="paper-preview__side paper-preview__side_back"></div>
+  </div>
+  <div class="paper-preview__item">
+    <div class="paper-preview__side paper-preview__side_front" #paperPart></div>
+    <div class="paper-preview__side paper-preview__side_back"></div>
+  </div>
+  <div class="paper-preview__item">
+    <div class="paper-preview__side paper-preview__side_front" #paperPart></div>
+    <div class="paper-preview__side paper-preview__side_back"></div>
+  </div>
+</div>
+<div class="envelope"
+  [@toggleEnvelope]="letterState"
+  (@toggleEnvelope.done)="onCloseEnvelope($event)"
+>
+  <div class="envelope__side envelope__side_front"></div>
+  <div class="envelope__side envelope__side_back">
+    <div class="envelope__letter"></div>
+    <div class="envelope__triangle envelope__triangle_down"></div>
+    <div class="envelope__triangle envelope__triangle_right"></div>
+    <div class="envelope__triangle envelope__triangle_left"></div>
+  </div>
+</div>
+<div class="paper-nav">
+  <button
+    class="paper-nav__send"
+    type="button"
+    *ngIf="isShowPaper"
+    (click)="onSend()"
+  >Отправить</button>
+</div>

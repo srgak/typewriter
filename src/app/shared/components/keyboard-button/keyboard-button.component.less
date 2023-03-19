@@ -1,0 +1,112 @@
+@import '../../../../assets/styles/variables.less';
+
+:host {
+  position: relative;
+  perspective: 900px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.keyboard {
+  &-btn {
+    position: relative;
+    &__kernel {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 7px;
+      height: 80px;
+      background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(184,184,184,1) 50%, rgba(0,0,0,1) 100%);
+      z-index: -1;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
+      }
+    }
+    &__platform {
+      background: #000;
+      border: 3px solid rgba(184,184,184,1);
+      color: #fff;
+      font-size: 22px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      &_circle {
+        width: 50px;
+        border-radius: 50%;
+      }
+      &_shift {
+        width: 100px;
+        border-radius: 20px;
+      }
+      &_space {
+        width: 500px;
+        border-radius: 20px;
+      }
+    }
+    &__up,
+    &__down {
+      position: absolute;
+    }
+    &__up {
+      top: 0;
+      right: 12px;
+      transform: scale(0.8);
+    }
+    &__down {
+      bottom: 0;
+      left: 14px;
+    }
+    &_row {
+      &_1 {
+        transform-origin: center -@keyboard_pt;
+        .keyboard-btn {
+          &__kernel {
+            height: @keyboard_pt + (@keyboard_key_size / 2);
+          }
+        }
+      }
+      &_2 {
+        transform-origin: center -(@keyboard_pt + @keyboard_key_size + @keyboard_row-interval);
+        .keyboard-btn {
+          &__kernel {
+            height: @keyboard_pt + @keyboard_key_size + @keyboard_row-interval + (@keyboard_key_size / 2);
+          }
+        }
+      }
+      &_3 {
+        transform-origin: center -(@keyboard_pt + @keyboard_key_size * 2 + @keyboard_row-interval * 2);
+        .keyboard-btn {
+          &__kernel {
+            height: @keyboard_pt + @keyboard_key_size * 2 + @keyboard_row-interval * 2 + (@keyboard_key_size / 2);
+          }
+        }
+      }
+      &_4 {
+        transform-origin: center -(@keyboard_pt + @keyboard_key_size * 3 + @keyboard_row-interval * 3);
+        .keyboard-btn {
+          &__kernel {
+            height: @keyboard_pt + @keyboard_key_size * 3 + @keyboard_row-interval * 3 + (@keyboard_key_size / 2);
+          }
+        }
+      }
+      &_5 {
+        transform-origin: center -(@keyboard_pt + @keyboard_key_size * 4 + @keyboard_row-interval * 4);
+        .keyboard-btn {
+          &__kernel {
+            height: @keyboard_pt + @keyboard_key_size * 4 + @keyboard_row-interval * 4 + (@keyboard_key_size / 2);
+          }
+        }
+      }
+    }
+  }
+}

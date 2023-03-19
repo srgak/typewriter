@@ -1,0 +1,12 @@
+<canvas
+  class="paper"
+  paperReady
+  (onReady)="initPaper($event)"
+  [@movePaper]="{
+    value: paperState,
+    params: {
+      translateEnd: translateY
+    }
+  }"
+  (@movePaper.done)="movePaperDone()"
+  ></canvas>

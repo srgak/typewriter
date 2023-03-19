@@ -1,0 +1,12 @@
+<div class="carriage-arm">
+  <button
+    class="carriage-arm__trigger"
+    type="button"
+    (click)="goToNextString()"
+    [@moveTrigger]="carriageTriggerState"
+    (@moveTrigger.done)="moveTriggerDone()"
+    autoblurButton
+  ></button>
+</div>
+<typewriter-scroll-wheel (onRotateWheel)="paperData.movePaper.next($event)"></typewriter-scroll-wheel>
+<typewriter-paper (onGetSymbol)="data.currentLetter.push($event)"></typewriter-paper>

@@ -1,0 +1,9 @@
+<div class="wheel" draggable="true">
+  <button
+    *ngFor="let btn of btnList"
+    type="button"
+    class="wheel__btn"
+    (click)="onRotate(btn)"
+    autoblurButton
+  >{{btn}}</button>
+</div>

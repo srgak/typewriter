@@ -1,0 +1,50 @@
+<button
+  class="keyboard-btn"
+  type="button"
+  [ngClass]="{
+    'keyboard-btn_row_1': data?.row === 1,
+    'keyboard-btn_row_2': data?.row === 2,
+    'keyboard-btn_row_3': data?.row === 3,
+    'keyboard-btn_row_4': data?.row === 4,
+    'keyboard-btn_row_5': data?.row === 5
+  }"
+  [@moveKey]="data?.state | async"
+  (@moveKey.done)="keyPress()"
+  (touchstart)="onDown()"
+  (touchend)="onUp()"
+>
+  <div class="keyboard-btn__kernel"></div>
+  <div 
+    class="keyboard-btn__platform"
+    [ngClass]="{
+      'keyboard-btn__platform_circle': data?.type === 'letter' || data?.type === 'backspace',
+      'keyboard-btn__platform_shift': data?.type === 'shift',
+      'keyboard-btn__platform_space': data?.type === 'space'
+    }"
+  >
+    <ng-container [ngSwitch]="data?.type">
+      <ng-container *ngSwitchCase="'letter'">
+        <ng-container *ngIf="isDifferentSymbols; else letter">
+          <span class="keyboard-btn__up">
+            {{data!.symbol?.up}}
+          </span>
+          <span class="keyboard-btn__down">
+            {{data!.symbol?.down}}
+          </span>
+        </ng-container>
+        <ng-template #letter>
+          {{data!.symbol?.up}}
+        </ng-template>
+      </ng-container>
+      <ng-container *ngSwitchCase="'space'">
+        Пробел
+      </ng-container>
+      <ng-container *ngSwitchCase="'shift'">
+        Шифт
+      </ng-container>
+      <ng-container *ngSwitchCase="'backspace'">
+        <-
+      </ng-container>
+    </ng-container>
+  </div>
+</button>
